@@ -95,7 +95,7 @@ function App() {
     }, [canvas, width, height]);
 
     if (isMobile) {
-        return <p>Please open the link in a desktop browser</p>;
+        return <p className="text-white">Please open the link in a desktop browser</p>;
     }
 
     return (
