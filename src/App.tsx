@@ -4,6 +4,7 @@ import "./App.css";
 import { useWindowSize } from "usehooks-ts";
 import useSound from "use-sound";
 import { PlayFunction } from "use-sound/dist/types";
+import { isMobile } from "react-device-detect";
 
 function App() {
     const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
@@ -92,6 +93,10 @@ function App() {
             setCanvas(document.querySelector("canvas"));
         }
     }, [canvas, width, height]);
+
+    if (isMobile) {
+        return <p>Please open the link in a desktop browser</p>;
+    }
 
     return (
         <div className="flex h-[100vh] w-full items-center justify-center font-poppins absolute top-0 left-0">
