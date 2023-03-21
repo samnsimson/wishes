@@ -56,18 +56,16 @@ function App() {
     };
 
     const shoot = (confetti: CreateTypes) => {
-        confetti({
-            ...defaultsStars,
-            particleCount: 40,
-            scalar: 1.2,
-            shapes: ["star"],
-        });
-        confetti({
-            ...defaultsStars,
-            particleCount: 10,
-            scalar: 0.75,
-            shapes: ["circle"],
-        });
+        [...Array(3).keys()].forEach((num) =>
+            setTimeout(() => {
+                confetti({
+                    ...defaultsStars,
+                    particleCount: num * 40,
+                    scalar: num++ * 1.2,
+                    shapes: ["star", "circle", "square"],
+                });
+            }, num++ * 400)
+        );
     };
 
     const showConfetti = (canvas: HTMLCanvasElement | null) => {
